@@ -21,9 +21,11 @@ class Firebase {
 
 	async readItems() {
 		const querySnapshot = await getDocs(collection(this.db, "Items"));
-		querySnapshot.forEach((doc) => {
-		  console.log(`${doc.data()}`);
-		});
+		
+		// return querySnapshot;
+		// querySnapshot.forEach((doc) => {
+		//   console.log(`${doc.data()}`);
+		// });
 	}
 }
 export default Firebase
