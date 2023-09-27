@@ -2,10 +2,18 @@ class ItemsModule {
 	constructor() {
 		this.items = [];
 	}
-	getItems(itemsData) {
-		itemsData.forEach(element => {
-			
+	
+	saveItems(itemsData) {
+		itemsData.then(items => {
+			items.forEach(item => {
+				this.items.push({
+					name: item.name,
+					model: item.model,
+					price: item.price,
+					image: item.image,
+				});
+			});
 		});
-	}
+	};
 }
 export default ItemsModule;

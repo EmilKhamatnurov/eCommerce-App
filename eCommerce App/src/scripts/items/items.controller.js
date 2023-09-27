@@ -5,12 +5,14 @@ import Firebase from "../firebase/firebase";
 class ItemsController {
 	constructor() {
 		this.firebase = new Firebase();
-		this.module = new ItemsModule();
+		this.modele = new ItemsModule();
 		this.view = new ItemsView();
 	}
 
 	init() {
-		this.firebase.readItems();
+		const itemsData = this.firebase.readItems();
+		this.modele.saveItems(itemsData);
+		this.view.renderItemsList(this.modele.items);
 	}
 }
 export default ItemsController
