@@ -1,18 +1,21 @@
-import ItemsModule from "./items.model";
+import ItemsModel from "./items.model";
 import ItemsView from "./items.view";
 import Firebase from "../firebase/firebase";
 
 class ItemsController {
 	constructor() {
 		this.firebase = new Firebase();
-		this.modele = new ItemsModule();
+		this.model = new ItemsModel();
 		this.view = new ItemsView();
 	}
 
 	init() {
-		const itemsData = this.firebase.readItems();
-		this.modele.saveItems(itemsData);
-		this.view.renderItemsList(this.modele.items);
+		this.firebase.readItems() 
+			.then(itemsData => {
+				this.model.saveItems(itemsData);
+				this.view.renderItemsList(this.model.items);
+			})
 	}
 }
+
 export default ItemsController
