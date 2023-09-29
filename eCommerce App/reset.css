@@ -19,6 +19,7 @@
 *::after {
 	box-sizing: border-box;
 	font-weight: 400;
+	font-family: 'Open Sans', sans-serif;
 }
 
 /* Fix mobile Safari increase font-size on landscape mode */
