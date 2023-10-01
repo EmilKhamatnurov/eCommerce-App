@@ -1,12 +1,16 @@
 class ItemsView {
 	constructor() {
 		this.itemsListNode = document.querySelector('#items');
+		this.itemsListNode.addEventListener('click' ,(element) => {
+			this.openInformationPage(element);
+		});
 	}
 
+	// Рендер списка товаров
 	renderItemsList(itemsList) {
-		itemsList.forEach(item => {
+		itemsList.forEach((item, index) => {
 			this.itemsListNode.innerHTML += `
-				<a class = 'item' scr="#">
+				<a data-item='${index}' class = 'item' scr="#">
 					<img class='item__image' src="${item.image}" alt="Картинка товара">
 					<div>
 						<p class='item__name'>${item.name}</p>
@@ -19,6 +23,11 @@ class ItemsView {
 				</a>
 			`
 		});
+	}
+
+	// Функция открытия страницы информации
+	openInformationPage (e) {
+		console.log(e.target);
 	}
 }
 
