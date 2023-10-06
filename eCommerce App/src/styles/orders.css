@@ -1,22 +1,38 @@
 .order-information-wrapper {
-
+	max-width: 272px;
+	width: 100%;
 }
-.order-information {
 
-}
 .cart-title {
-    color: #1A1F16;
-    font-size: 32px;
-    text-align: center;
+	color: #1A1F16;
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 10px;
 }
+
+.cart-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .cart {
-
+	padding: 10px 0;
 }
+
 .orders-title {
-    color: #1A1F16;
-    font-size: 32px;
-    text-align: center;
+	color: #1A1F16;
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 24px;
 }
-.orders {
 
+.cart_button {
+	margin-bottom: 44px;
+	padding: 8px 24px;
+	border-radius: 14px;
+	font-size: 20px;
+	color: #FFF;
+	font-weight: 400;
+	background: #1A1F16;
 }

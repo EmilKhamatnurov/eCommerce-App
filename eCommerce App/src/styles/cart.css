@@ -1,0 +1,26 @@
+.cart {
+	max-width: 272px;
+	display: flex;
+	justify-content: center;
+	align-items: start;
+	align-content: start;
+	flex-wrap: wrap;
+	row-gap: 16px;
+	column-gap: 8px;
+
+}
+
+.cart__item-image {
+	width: 64px;
+	height: 64px;
+	cursor: pointer;
+}
+
+.cart__item-image:hover {
+	opacity: 0.7;
+	transition: 0.1s;
+}
+
+.cart_button {
+	cursor: pointer;
+}

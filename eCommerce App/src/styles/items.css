@@ -50,6 +50,11 @@
 	font-weight: 400;
 }
 
+.item__price:hover {
+	opacity: 0.7;
+	transition: 0.1s;
+}
+
 .item_cart-image:hover {
 	opacity: 0.7;
 	transition: 0.1s;

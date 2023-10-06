@@ -5,19 +5,32 @@ import LocalStorage from "./localStorage";
 
 class ItemsController {
 	constructor() {
-		this.firebase = new Firebase();
-		this.localStorage = new LocalStorage();
 		this.model = new ItemsModel();
-		this.view = new ItemsView();
+		this.view = new ItemsView({
+			onCartBtnClick: this.handleCartBtnClick
+		});
+
+		this.localStorage = new LocalStorage({
+			onStorageChange: this.localStorageChange
+		});
+		this.firebase = new Firebase();
 	}
 
 	init() {
 		this.firebase.readItems() 
 			.then(itemsData => {
-				this.localStorage.saveToLocalStorage();
 				this.model.saveItems(itemsData);
 				this.view.renderItemsList(this.model.items);
+				this.view._renderCart(this.localStorage._getCartItems())
 			})
+	}
+
+	handleCartBtnClick = (itemId) => {
+		const item = this.model._getItem(itemId);
+		this.localStorage.saveCartToLocalStorage(item);
+	}
+	localStorageChange = (cartItems) => {
+		this.view._renderCart(cartItems);
 	}
 }
 
