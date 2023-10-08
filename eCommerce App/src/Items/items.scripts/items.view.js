@@ -1,6 +1,6 @@
 class ItemsView {
-	constructor({onCartBtnClick}) {
-		this.onCartBtnClick = onCartBtnClick;
+	constructor({onItemClick}) {
+		this.onItemClick = onItemClick;
 
 		this.itemsListNode = document.querySelector('#items');
 		this.cartNode = document.querySelector('#cart');
@@ -38,7 +38,7 @@ class ItemsView {
 	handleItemClick(element) {
 		const itemId = this._returnItemId(element);
 		if (element.getAttribute('class') === 'item_cart-image') {
-			this.onCartBtnClick(itemId);
+			this.onItemClick(itemId);
 		}
 		else {
 			// this._openInformationPage(itemId);
@@ -47,21 +47,6 @@ class ItemsView {
 	}
 	
 	_openInformationPage = (itemId) => window.location.href = `./src/pages/itemInfoPage.html?id=${itemId}`;
-
-	_renderCart = (cartItems) => {
-		this.cartNode.innerHTML = '';
-		cartItems.forEach((cartItem, index) => {
-			// Рендер товаров в сыне-корзине
-			this.cartNode.innerHTML += this._buildCartItemHtml(cartItem, index);
-		});
-	}
-	_buildCartItemHtml = (cartItem, index) => {
-		return `
-			<div data-cartItem = '${index}' class='cart-item'>
-				<img class='cart__item-image' src="${cartItem.image}" alt="Картинка товара">
-			</div>
-		`
-	}
 
 	_returnItemId (element) {
 		return element.closest('.item').getAttribute('data-item');

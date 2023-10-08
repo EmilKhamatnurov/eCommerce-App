@@ -21,3 +21,8 @@ html {
 	display: flex;
 	justify-content: space-around;
 }
+
+/* Стили для кнопок переключения страниц */
+::-webkit-scrollbar {
+	width: 0;
+}
