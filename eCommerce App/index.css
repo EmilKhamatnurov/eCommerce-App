@@ -1,6 +1,4 @@
-@import url(src/styles/items.css);
-@import url(src/styles/orders.css);
-@import url(src/styles/cart.css);
+@import url(src/Items/items.styles/items.css);
 
 body,
 html {

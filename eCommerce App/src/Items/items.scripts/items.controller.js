@@ -1,7 +1,7 @@
 import ItemsModel from "./items.model";
 import ItemsView from "./items.view";
-import Firebase from "../firebase/firebase";
-import LocalStorage from "./localStorage";
+import Firebase from "../../Firebase/firebase"
+import LocalStorage from "../../LocalStorage/localStorage";
 
 class ItemsController {
 	constructor() {

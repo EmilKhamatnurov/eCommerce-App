@@ -3,7 +3,7 @@ class ItemsView {
 		this.onCartBtnClick = onCartBtnClick;
 
 		this.itemsListNode = document.querySelector('#items');
-		this.carttNode = document.querySelector('#cart');
+		this.cartNode = document.querySelector('#cart');
 
 		this.itemsListNode.addEventListener('click' ,(element) => {
 			this.handleItemClick(element.target);
@@ -36,17 +36,23 @@ class ItemsView {
 	}
 
 	handleItemClick(element) {
+		const itemId = this._returnItemId(element);
 		if (element.getAttribute('class') === 'item_cart-image') {
-			const itemId = this._returnItemId(element);
 			this.onCartBtnClick(itemId);
 		}
+		else {
+			// this._openInformationPage(itemId);
+			console.log(itemId);
+		}
 	}
+	
+	_openInformationPage = (itemId) => window.location.href = `./src/pages/itemInfoPage.html?id=${itemId}`;
 
 	_renderCart = (cartItems) => {
-		this.carttNode.innerHTML = '';
+		this.cartNode.innerHTML = '';
 		cartItems.forEach((cartItem, index) => {
 			// Рендер товаров в сыне-корзине
-			this.carttNode.innerHTML += this._buildCartItemHtml(cartItem, index);
+			this.cartNode.innerHTML += this._buildCartItemHtml(cartItem, index);
 		});
 	}
 	_buildCartItemHtml = (cartItem, index) => {
