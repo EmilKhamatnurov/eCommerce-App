@@ -10,7 +10,7 @@ class ItemsController {
 		// Items obj
 		this.item_model = new ItemsModel();
 		this.item_view = new ItemsView({
-			onCartBtnClick: this.handleItemClick
+			onItemClick: this.handleItemClick
 		});
 		//  Cart obj
 		this.cart_model = new CartModel();

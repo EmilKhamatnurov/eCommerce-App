@@ -11,7 +11,7 @@ class ItemsView {
 	}
 
 	// Рендер списка товаров
-	renderItemsList(itemsList) {
+	renderItemsList = (itemsList) => {
 		itemsList.forEach((item, index) => {
 			// Рендер списка товаров
 			this.itemsListNode.innerHTML += this._buildItemHtml(item, index);
@@ -35,27 +35,21 @@ class ItemsView {
 		`
 	}
 
-	handleItemClick(element) {
+	handleItemClick = (element) => {
 		const itemId = this._returnItemId(element);
 		if (element.getAttribute('class') === 'item_cart-image') {
 			this.onItemClick(itemId);
 		}
 		else {
-			// this._openInformationPage(itemId);
+			this._openInformationPage(itemId);
 			console.log(itemId);
 		}
 	}
 	
-	_openInformationPage = (itemId) => window.location.href = `./src/pages/itemInfoPage.html?id=${itemId}`;
+	_openInformationPage = (itemId) => window.location.href = `./src/Item/Item.html?id=${itemId}`;
 
-	_returnItemId (element) {
+	_returnItemId = (element) => {
 		return element.closest('.item').getAttribute('data-item');
 	}
 }
-// Функция открытия страницы информации
-	// openInformationPage (element) {
-	// 	const itemId = this._returnItemId(element); // id получает и пока никуда не отправляет
-	// }
-	// Фуцнкция F отправляет id в model  Model - рендерит
-	
 export default ItemsView;

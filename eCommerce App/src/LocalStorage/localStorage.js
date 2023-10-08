@@ -6,7 +6,7 @@ class LocalStorage {
 		this.localStorage = localStorage.setItem('cart', 'Пустая');
 	}
 	_getCartItems = () => {
-		return this.cartItems
+		return localStorage.getItem('cart');
 	}
 	
 	_generateUserId = () => {
