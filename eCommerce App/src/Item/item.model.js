@@ -1,18 +1,17 @@
 class ItemModel {
 	constructor() {
 		this.itemId = this.getMovieID();
-		this.itemData = [];
+		this.itemData;
 	}
 
-	_saveItem(itemData) {
-		this.itemData.push({
+	_saveItem = (itemData) => {
+		this.itemData = {
 			name: itemData.name,
 			model: itemData.model,
 			price: itemData.price,
 			image: itemData.image,
-		});
+		};
 	  };
-
 
 	// Получаем id товара
 	getMovieID = () => {

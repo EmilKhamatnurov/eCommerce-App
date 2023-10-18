@@ -1,0 +1,13 @@
+.back-button {}
+
+.item-image {
+	width: 242px;
+	height: 302px;
+}
+
+.basic-information {
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+	gap: 56px;
+}

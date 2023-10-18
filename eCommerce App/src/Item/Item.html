@@ -3,32 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../index.css">
+  	<link rel="stylesheet" href="../../index.css">
+	<link rel="stylesheet" href="./styles/item.css">
 	<title>Информация о товаре</title>
 </head>
 <body>
 	<div class="container">
-		<a href="#" class="back-button">
+		<a id="backButton" class="back-button">
 			<img src="../assets/back-button-arrow.svg">
-			Список товаров</a>
-		<div class="basic-information">
-			<img id="itemImg" alt="Картинка товара">
-			<div class="basic-information-wrapper">
-				<h1 id="itemName"></h1>
-				<p id="itemModel"></p>
-				<div id="itemRating"></div>
-				<p id="itemPrice"></p>
-				<p id="itemBasicDesc"></p>
-				<!-- <button></button> -->
-			</div>
+			Список товаров
+		</a>
+	</div>
+	<div class="container">
+		<div id="itemInfoOutput">
+			<!-- Здесь выводится информация о фильме в нужном формате -->
 		</div>
-		<div id="fullDesc" class="full-Desc-wrapper">
-			
-		</div>
-		
-		<!-- Область корзины -->
-      <div class="order-information">
-         <div class="cart-wrapper">
+	<!-- Корзина корзины -->
+	<div class="order-information">
+        <div class="cart-wrapper">
             <h2 class="cart-title">Корзина</h2>
             <div id="cart" class="cart">
                <p>Корзина пуста</p>
@@ -38,7 +30,7 @@
                <img src="../assets/cart-btn-icon.svg" alt="">
                Корзина
             </button>
-         </div>
+        </div>
     </div>
 	</div>
    <script type="module" src="./item.controller.js"></script>
