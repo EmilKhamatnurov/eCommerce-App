@@ -3,11 +3,9 @@ class LocalStorage {
 		this.cartItems = [];
 		// userId?
 		this.onStorageChange = onStorageChange;
-		this.localStorage = localStorage.setItem('cart', 'Пустая');
+		this.localStorage = localStorage;
 	}
-	_getCartItems = () => {
-		return localStorage.getItem('cart');
-	}
+	_getCartItems = () => JSON.parse(localStorage.getItem('cart'));
 	
 	_generateUserId = () => {
 		

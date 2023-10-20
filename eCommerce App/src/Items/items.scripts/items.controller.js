@@ -27,7 +27,7 @@ class ItemsController {
 			.then(itemsData => {
 				this.item_model.saveItems(itemsData);
 				this.item_view.renderItemsList(this.item_model.items);
-				this.cart_view._renderCart(this.localStorage._getCartItems())
+				this.cart_view._renderCart(this.localStorage._getCartItems());
 			})
 	}
 

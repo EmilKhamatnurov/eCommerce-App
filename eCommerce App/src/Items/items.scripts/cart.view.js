@@ -5,10 +5,14 @@ class CartView {
 
 	_renderCart = (cartItems) => {
 		this.cartNode.innerHTML = '';
-		cartItems.forEach((cartItem, index) => {
-			// Рендер товаров в сыне-корзине
-			this.cartNode.innerHTML += this._buildCartItemHtml(cartItem, index);
-		});
+		if(cartItems) {
+			cartItems.forEach((cartItem, index) => {
+				this.cartNode.innerHTML += this._buildCartItemHtml(cartItem, index);
+			})
+		}
+		else {
+			this.cartNode.innerHTML = 'Пустая';
+		}	
 	}
 	_buildCartItemHtml = (cartItem, index) => {
 		return `

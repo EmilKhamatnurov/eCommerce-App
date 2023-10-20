@@ -10,6 +10,8 @@ class ItemModel {
 			model: itemData.model,
 			price: itemData.price,
 			image: itemData.image,
+			basic_information: itemData.basic_information, 
+			full_description: itemData.full_description
 		};
 	  };
 

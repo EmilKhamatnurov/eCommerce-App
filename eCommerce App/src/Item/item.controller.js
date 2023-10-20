@@ -17,8 +17,10 @@ class ItemController {
 
 	init = () => {
 		const itemId = this.item_model.itemId;
+		this.cart_view._renderCart(this.localStorage._getCartItems());
+		
 		this.firebase.readItems()
-			.then(itemsData => {
+			.then(itemsData => { 
 				this.item_model._saveItem(itemsData[itemId]);
 				// Рендер данных
 				this.item_view._renderItemInfo(this.item_model.itemData);
@@ -29,7 +31,6 @@ class ItemController {
 	f = () => {
 
 	}
-
 }
 
 

@@ -24,4 +24,5 @@
 
 .cart_button {
 	cursor: pointer;
+	min-width: 158px;
 }
