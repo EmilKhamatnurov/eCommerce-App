@@ -14,11 +14,14 @@ class ItemsController {
 		});
 		//  Cart obj
 		this.cart_model = new CartModel();
-		this.cart_view = new CartView();
-
+		this.cart_view = new CartView({
+			onDeleteBtnClick: this.handleDeleteBtnClick
+		});
+		// local Storage
 		this.localStorage = new LocalStorage({
 			onStorageChange: this.onCartChange
 		});
+		// firebase
 		this.firebase = new Firebase();
 	}
 
@@ -29,6 +32,9 @@ class ItemsController {
 				this.item_view.renderItemsList(this.item_model.items);
 				this.cart_view._renderCart(this.localStorage._getCartItems());
 			})
+	}
+	handleDeleteBtnClick = (itemId) => {
+		this.localStorage._deleteCartItem(itemId);
 	}
 
 	handleItemClick = (itemId) => {

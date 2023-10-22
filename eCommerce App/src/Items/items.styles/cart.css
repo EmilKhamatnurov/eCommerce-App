@@ -26,3 +26,27 @@
 	cursor: pointer;
 	min-width: 158px;
 }
+
+.cart-item {
+	position: relative;
+	z-index: 0;
+}
+
+/* Delete button  */
+
+.delete-item-btn {
+	display: none;
+	position: absolute;
+	top: -7px;
+	left: -7px;
+	z-index: 100;
+}
+
+.delete-item-btn-image {
+	width: 23px;
+	height: 23px;
+}
+
+.cart-item:hover .delete-item-btn {
+	display: block;
+}

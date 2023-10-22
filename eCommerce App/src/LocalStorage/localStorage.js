@@ -6,10 +6,17 @@ class LocalStorage {
 		this.localStorage = localStorage;
 	}
 	_getCartItems = () => JSON.parse(localStorage.getItem('cart'));
-	
-	_generateUserId = () => {
-		
+
+	_deleteCartItem = (itemId) => {
+		this.cartItems.splice(itemId,1);
+		localStorage.setItem('cart', JSON.stringify(this.cartItems));
+		this.onStorageChange(JSON.parse(localStorage.getItem('cart')));
 	}
+
+	_generateUserId = () => {
+		this.onStorageChange(this.cartItems);
+	}
+	//! Нужно поменяь название массива на Add, потому что у нас должна быть функция сохранения элемента
 
 	saveCartToLocalStorage = (item) => {
 		this.cartItems.push(item);
