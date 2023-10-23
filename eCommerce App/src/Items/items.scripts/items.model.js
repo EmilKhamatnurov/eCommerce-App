@@ -12,6 +12,8 @@ class ItemsModel {
             model: item.model,
             price: item.price,
             image: item.image,
+			basic_information: item.basic_information, 
+			full_description: item.full_description
          });
       });
 	};

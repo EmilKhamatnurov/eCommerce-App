@@ -1,6 +1,6 @@
 class LocalStorage {
 	constructor({onStorageChange}) {
-		this.cartItems = [];
+		// this.cartItems;
 		// userId?
 		this.onStorageChange = onStorageChange;
 		this.localStorage = localStorage;
@@ -13,15 +13,16 @@ class LocalStorage {
 		this.onStorageChange(JSON.parse(localStorage.getItem('cart')));
 	}
 
-	_generateUserId = () => {
-		this.onStorageChange(this.cartItems);
-	}
+	// _generateUserId = () => {
+	// 	this.onStorageChange(this.cartItems);
+	// }
 	//! Нужно поменяь название массива на Add, потому что у нас должна быть функция сохранения элемента
 
 	saveCartToLocalStorage = (item) => {
-		this.cartItems.push(item);
-		localStorage.setItem('cart', JSON.stringify(this.cartItems));
-		this.onStorageChange(this.cartItems);
+		const cartItems = this._getCartItems();
+		cartItems.push(item);
+		localStorage.setItem('cart', JSON.stringify(cartItems));
+		this.onStorageChange(cartItems);
 	}
 }
 

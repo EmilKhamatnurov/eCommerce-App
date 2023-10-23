@@ -34,15 +34,15 @@ class ItemsView {
 		</a>
 		`
 	}
-
 	handleItemClick = (element) => {
+		// Добавление в корзину товара
 		const itemId = this._returnItemId(element);
 		if (element.getAttribute('class') === 'item_cart-image') {
 			this.onItemClick(itemId);
 		}
+		// Открытие страницы информации
 		else {
 			this._openInformationPage(itemId);
-			console.log(itemId);
 		}
 	}
 	
