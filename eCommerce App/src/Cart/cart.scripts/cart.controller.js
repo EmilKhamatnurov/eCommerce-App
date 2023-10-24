@@ -1,10 +1,10 @@
-import CartView from "./cart.view";
+import CartView2 from "./cart.view";
 import Firebase from "../../Firebase/firebase";
 import LocalStorage from "../../LocalStorage/localStorage";
 
 class CartController {
 	constructor() {
-		this.cart_view = new CartView();
+		this.cart_view = new CartView2();
 		this.localStorage = new LocalStorage({
 			onStorageChange: this.f
 		});

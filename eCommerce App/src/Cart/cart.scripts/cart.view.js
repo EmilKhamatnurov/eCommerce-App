@@ -4,7 +4,7 @@ class CartView {
 		this.cartNode = document.querySelector('#cart');
 		// Кнопка возврата к главной странице магазина
 		this.backButtonNode = document.querySelector('#backButton');
-		this.backButtonNode.addEventListener('click', this._openMainPage)
+		this.backButtonNode.addEventListener('click', this._openMainPage);
 	}
 	// Рендер корзины сбоку
 	_renderCart = (cartItems) => {
@@ -20,7 +20,10 @@ class CartView {
 	}
 	_buildCartItemHtml = (cartItem, index) => {
 		return `
-			<div data-cartItem = '${index}' class='cart-item'>
+			<div data-cartItem='${index}' class='cart-item'>
+				<button class="delete-item-btn">
+					<img data-deleteBtn="${index}" class="delete-item-btn-image" src="../assets/Close-btn-image.png">
+				</button>
 				<img class='cart__item-image' src="${cartItem.image}" alt="Картинка товара">
 			</div>
 		`
@@ -29,15 +32,16 @@ class CartView {
 	// Рендер списка элементов в корзине
 	_renderCartList = (itemsData) => {
 		this.cartOutputNode.innerHTML = '';
-		if (!itemsData) {
+		if (itemsData.lenght === 0) {
 			this.cartOutputNode.innerHTML = `<p>Корзина пуста</p>`
 			return
 		}
 		itemsData.forEach((item, index) => {
 			this.cartOutputNode.innerHTML += this._buildCartListItemHtml(item, index);
 		});
+
 	}
-	
+	// добавиться
 	_buildCartListItemHtml = (cartItem, index) => {
 		return `
 			<div data-cartItem = "${index}" class="cart-list__item">
@@ -56,7 +60,7 @@ class CartView {
 			</div>
 		`
 	}
-
+	// переопределиться
 	_openMainPage = () => window.location.href = `../../index.html`;
 }
 export default CartView;
