@@ -4,7 +4,6 @@ class CartView {
     }
 
 	_renderCart = (cartItems) => {
-		console.log(cartItems);
 		this.cartNode.innerHTML = '';
 		if(cartItems) {
 			cartItems.forEach((cartItem, index) => {

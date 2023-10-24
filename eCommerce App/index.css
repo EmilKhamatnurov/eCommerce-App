@@ -23,6 +23,15 @@ html {
 	column-gap: 35px;
 }
 
+.back-button {
+	color: var(--font-dark, #1A1F16);
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
 /* Стили для кнопок переключения страниц */
 ::-webkit-scrollbar {
 	width: 0;

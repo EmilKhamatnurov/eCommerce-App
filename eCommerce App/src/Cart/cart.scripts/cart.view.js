@@ -2,6 +2,9 @@ class CartView {
 	constructor() {
 		this.cartOutputNode = document.querySelector('#cartOutput');
 		this.cartNode = document.querySelector('#cart');
+		// Кнопка возврата к главной странице магазина
+		this.backButtonNode = document.querySelector('#backButton');
+		this.backButtonNode.addEventListener('click', this._openMainPage)
 	}
 	// Рендер корзины сбоку
 	_renderCart = (cartItems) => {
@@ -53,5 +56,7 @@ class CartView {
 			</div>
 		`
 	}
+
+	_openMainPage = () => window.location.href = `../../index.html`;
 }
 export default CartView;
