@@ -1,15 +1,14 @@
 class LocalStorage {
 	constructor({onStorageChange}) {
-		// this.cartItems;
-		// userId?
 		this.onStorageChange = onStorageChange;
 		this.localStorage = localStorage;
 	}
 	_getCartItems = () => JSON.parse(localStorage.getItem('cart'));
 
 	_deleteCartItem = (itemId) => {
-		this.cartItems.splice(itemId,1);
-		localStorage.setItem('cart', JSON.stringify(this.cartItems));
+		const cartItems = this._getCartItems();
+		cartItems.splice(itemId,1);
+		localStorage.setItem('cart', JSON.stringify(cartItems));
 		this.onStorageChange(JSON.parse(localStorage.getItem('cart')));
 	}
 

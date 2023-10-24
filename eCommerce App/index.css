@@ -20,6 +20,7 @@ html {
 	padding: 0 30px;
 	display: flex;
 	justify-content: space-around;
+	column-gap: 35px;
 }
 
 /* Стили для кнопок переключения страниц */

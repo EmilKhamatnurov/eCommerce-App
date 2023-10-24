@@ -39,7 +39,7 @@ class CartView {
 		`
 	}
 
-	_openCartPage = () => window.location.href = `./src/Cart/Cart.html`;
+	_openCartPage = () => window.location.href = `./src/Cart/cart.html`;
 }
 
 export default CartView

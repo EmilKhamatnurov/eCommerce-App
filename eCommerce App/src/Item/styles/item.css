@@ -11,8 +11,6 @@
 	margin-bottom: 24px;
 }
 
-.back-button {}
-
 .item-info-output {
 	max-width: 874px;
 }
@@ -25,6 +23,7 @@
 .item-name {
 	font-size: 61px;
 	font-weight: 700;
+	margin: 0;
 }
 
 .item-model {
@@ -32,7 +31,6 @@
 	font-size: 31px;
 }
 
-.item-rating {}
 
 .item-price {
 	color: var(--font-dark, #1A1F16);
