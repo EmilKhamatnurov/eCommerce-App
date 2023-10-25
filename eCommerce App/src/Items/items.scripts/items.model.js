@@ -13,7 +13,7 @@ class ItemsModel {
             model: item.model,
             price: item.price,
             image: item.image,
-			count: 0,
+			count: 1,
 			cost: 0,
 			basic_information: item.basic_information, 
 			full_description: item.full_description

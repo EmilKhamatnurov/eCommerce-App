@@ -19,9 +19,12 @@ class LocalStorage {
 
 	saveCartToLocalStorage = (item) => {
 		const cartItems = this._getCartItems();
-		cartItems.push(item);
+		const itemIndex = cartItems.findIndex(dataItem => item.id == dataItem.id);
+		if(itemIndex == -1) {
+			cartItems.push(item);
+			this.onStorageChange(cartItems);
+		} 
 		localStorage.setItem('cart', JSON.stringify(cartItems));
-		this.onStorageChange(cartItems);
 	}
 }
 
