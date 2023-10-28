@@ -14,14 +14,13 @@ class CartController {
 	init = () => {
 		const cartData = this.localStorage._getCartItems();
 		this.cart_view._renderCart(cartData);
-		this.firebase.readItems()
-			.then(itemsData => { 
-				// Рендер данных
-				this.cart_view._renderCartList(cartData);
-			});
+		this.cart_view._renderCartList(cartData);
+		// this.firebase.readItems()
+		// 	.then(itemsData => { 
+		// 		// Рендер данных корзины
+				
+		// 	});
 	}
-	
-
 	// функция-заглушка
 	f = () => {
 

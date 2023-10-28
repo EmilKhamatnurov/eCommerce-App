@@ -8,6 +8,7 @@
 	gap: 16px;
 	background-color: white;
 	margin-bottom: 24px;
+	padding-bottom: 30px;
 }
 
 .cart-list__item:last-child {
@@ -39,6 +40,7 @@
 	color: var(--font-dark, #1A1F16);
 	font-size: 20px;
 	letter-spacing: -0.4px;
+	margin-bottom: 30px;
 }
 
 .cart-list__item-rating {}
@@ -46,6 +48,7 @@
 .cart-list__price-wrapper {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .cart-list__item-price {
@@ -53,4 +56,14 @@
 	font-size: 20px;
 }
 
-.cart-list__item-counter {}
+.cart-list__item-counter {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+[data-operation="-"]{
+	color: red;
+}
+[data-operation="+"]{
+	color: green;
+}

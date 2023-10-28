@@ -3,7 +3,12 @@ class LocalStorage {
 		this.onStorageChange = onStorageChange;
 		this.localStorage = localStorage;
 	}
-	_getCartItems = () => JSON.parse(localStorage.getItem('cart'));
+	_getCartItems = () => {
+		if(JSON.parse(localStorage.getItem('cart')) === null) {
+			return []
+		} 
+		return JSON.parse(localStorage.getItem('cart'))
+	}
 
 	_deleteCartItem = (itemId) => {
 		const cartItems = this._getCartItems();

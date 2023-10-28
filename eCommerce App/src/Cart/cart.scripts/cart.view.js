@@ -52,8 +52,12 @@ class CartView {
 					<p class="cart-list__item-basic-info">${cartItem.basic_information}</p>
 					<div class="cart-list__item-rating"></div>
 					<div class="cart-list__price-wrapper">
-						<div class="cart-list__item-price">${cartItem.price}</div>
-						<div class="cart-list__item-counter"></div>
+						<div class="cart-list__item-price">$  ${cartItem.price} x ${cartItem.count}</div>
+						<div class="cart-list__item-counter">
+							<button data-operation="-" class="cart-list__item-counter-button">-</button>
+							<div class="cart-list__item-count">${cartItem.count}</div>
+							<button data-operation="+" class="cart-list__item-counter-button">+</button>
+						</div>
 					</div>
 					
 				</div>
