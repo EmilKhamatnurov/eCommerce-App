@@ -30,7 +30,11 @@ class ItemController {
 	}
 
 	handleAddCartBtnClick = () => {
-		this.localStorage.saveCartToLocalStorage(this.item_model._getItem())
+		const itemId = this.item_model.getMovieID();
+		const modelData = this.item_model._getItem();
+		console.log(itemId,modelData);
+		console.log("Привет!");
+		this.localStorage.saveCartToLocalStorage(modelData)
 	}
 	// Функция-заглушка
 	f = () => {

@@ -1,20 +1,20 @@
 class LocalStorage {
 	constructor({onStorageChange}) {
+		this.cartKeyString = 'cart';
 		this.onStorageChange = onStorageChange;
 		this.localStorage = localStorage;
 	}
-	_getCartItems = () => {
-		if(JSON.parse(localStorage.getItem('cart')) === null) {
-			return []
-		} 
-		return JSON.parse(localStorage.getItem('cart'))
-	}
+	_getCartItems = () => 
+		this._getFromStorageByKey(this.cartKeyString) === null ? [] :
+		this._getFromStorageByKey(this.cartKeyString)
+	
+	_getFromStorageByKey = (key) => JSON.parse(localStorage.getItem(key))
 
 	_deleteCartItem = (itemId) => {
 		const cartItems = this._getCartItems();
 		cartItems.splice(itemId,1);
 		localStorage.setItem('cart', JSON.stringify(cartItems));
-		this.onStorageChange(JSON.parse(localStorage.getItem('cart')));
+		this.onStorageChange(this._getFromStorageByKey(this.cartKeyString));
 	}
 
 	// _generateUserId = () => {
@@ -31,6 +31,7 @@ class LocalStorage {
 			this.onStorageChange(cartItems);
 		} 
 		localStorage.setItem('cart', JSON.stringify(cartItems));
+		console.log(itemIndex,cartItems);
 	}
 }
 

@@ -4,14 +4,16 @@ class ItemView {
 		this.itemInfoOutputNode = document.querySelector('#itemInfoOutput');
 		this.backButtonNode = document.querySelector('#backButton');
 		this.backButtonNode.addEventListener('click', this._openMainPage)
-		// this.addToCartBtnNode = document.querySelector('#addToCartBtn')
-		// this.this.addToCartBtnNode.addEventListener('click', this.onAddCartButtonClick)
 	}
 
 	_renderItemInfo = (itemInfo) => {
 		this.itemInfoOutputNode.innerHTML = this._buildItemInfoHtml(itemInfo);
+		// Чтобы повесить слушатель на кнопку есть вариант слепить ее с помощью createElement или 
+		// Найти ее после рендера в разметке
+		this.addToCartBtnNode = document.querySelector('#addToCartBtn')
+		this.addToCartBtnNode.addEventListener('click', this.onAddCartButtonClick)
 	}
-
+	
 	_buildItemInfoHtml = (itemInfo) => {
 		return `
 			<div class="basic-information">
@@ -22,7 +24,10 @@ class ItemView {
 					<div class="item-rating" id="itemRating"></div>
 					<p class="item-price" id="itemPrice">${itemInfo.price}</p>
 					<p class="item-basic-information" id="itemBasicDesc">${itemInfo.basic_information}</p>
-					${this._createAddCartBtn()}
+					<button id="addToCartBtn" class="cart_button add-to-cart-btn">
+						<img src="../assets/add-btn-icon .svg">
+						В корзину
+					</button>
 				</div>
 			</div>
 			<div class="divider"></div>
@@ -32,29 +37,9 @@ class ItemView {
 			</div>
 		`
 	}
-	_createAddCartBtn = () => {
-		// Кнопка
-		const btn = document.createElement('button');
-		const elementWrapper = document.createElement('div');
-		btn.classList.add('cart_button', 'add-to-cart-btn')
-		btn.id = "addToCartBtn";
-		//Тест кнопки
-		const btnText = document.createElement('div')
-		btnText.innerText = "В корзину";
-		
-		// Картинка добавления товара
-		const image = document.createElement('img');
-		image.src = '../assets/add-btn-icon .svg';
-		
-		// Создание элемента кнопки
-		btn.setAttribute("onclick", 'this.item_view.handleAddCartBtnClick');
-		btn.appendChild(image);
-		btn.appendChild(btnText);
-		elementWrapper.appendChild(btn);
-		return elementWrapper.innerHTML;
-	}
 
 	_openMainPage = () => window.location.href = `../../index.html`;
+	
 }
 
 export default ItemView;
