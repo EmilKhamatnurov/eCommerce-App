@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./cart.styles/cart.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<link rel="stylesheet" href="../../index.css">
+	<!-- Шрифты -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<title>Корзина товаров</title>
+</head>
+<body>
+	<div class="container container_header container_cart">
+		<a id="backButton" class="back-button">
+			<img src="../assets/back-button-arrow.svg">
+			Список товаров
+		</a>
+		<h2 class="cart-page-title">Проверь корзину</h2>
+	</div>
+	<div class="container">
+		<div id="cartOutput" class="cart-list">
+			<!-- Список товаров в корзине -->
+		</div>
+		<!-- Корзина корзины -->
+		<div class="order-information">
+			<div class="cart-wrapper">
+				<h2 class="cart-title">Корзина</h2>
+				<div id="cart" class="cart">
+					<p>Корзина пуста</p>
+					<!-- Тут формируется корзина -->
+				</div>
+				<button class="cart_button">
+					<img src="../assets/cart-btn-icon.svg">
+					Корзина
+				</button>
+			</div>
+		</div>
+	</div>
+   <script type="module" src="./cart.scripts/cart.controller.js"></script>
+</body>
+</html>

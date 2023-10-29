@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Интернет-магазин</title>
+	<!-- Шрифты -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<!-- Стили -->
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<h1 class="site-title">Ecommerce</h1>		
+		</div>
+	</header>
+	<div class="container">
+		<div id="items" class="items">
+			<!-- Список товаров -->
+		</div>
+		<div class="order-information-wrapper">
+			<div class="order-information">
+				<div class="cart-wrapper">
+					<h2 class="cart-title">Корзина</h2>
+					<div id="cart" class="cart">
+						<p>Корзина пуста</p>
+						<!-- Тут формируется корзина -->
+					</div>
+					<button id="cartBtn" class="cart_button">
+						<img src="src/assets/cart-btn-icon.svg">
+						Корзина
+					</button>
+				</div>
+				<div class="orders-wrapper">
+					<h2 class="orders-title">Заказы</h2>
+					<div class="orders">
+						<!-- Что тут? -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="src/Items/items.scripts/items.controller.js"></script>
+	<script type="module" src="src/index.js"></script>
+</body>
+</html>
