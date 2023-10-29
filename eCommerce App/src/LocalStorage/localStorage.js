@@ -3,7 +3,12 @@ class LocalStorage {
 		this.onStorageChange = onStorageChange;
 		this.localStorage = localStorage;
 	}
-	_getCartItems = () => JSON.parse(localStorage.getItem('cart'));
+	_getCartItems = () => {
+		if(JSON.parse(localStorage.getItem('cart')) === null) {
+			return []
+		} 
+		return JSON.parse(localStorage.getItem('cart'))
+	}
 
 	_deleteCartItem = (itemId) => {
 		const cartItems = this._getCartItems();
@@ -20,6 +25,7 @@ class LocalStorage {
 	saveCartToLocalStorage = (item) => {
 		const cartItems = this._getCartItems();
 		const itemIndex = cartItems.findIndex(dataItem => item.id == dataItem.id);
+		//Если элемента в корзине нет, то оставить все как есть, иначе добавить товар в корзину
 		if(itemIndex == -1) {
 			cartItems.push(item);
 			this.onStorageChange(cartItems);

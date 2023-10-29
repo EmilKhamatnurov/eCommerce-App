@@ -3,6 +3,8 @@ class ItemModel {
 		this.itemId = this.getMovieID();
 		this.itemData;
 	}
+	
+	_getItem = () => this.itemData;
 
 	_saveItem = (itemData) => {
 		this.itemData = {

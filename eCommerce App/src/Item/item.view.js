@@ -1,8 +1,11 @@
 class ItemView {
-	constructor() {
+	constructor({onAddCartButtonClick}) {
+		this.onAddCartButtonClick = onAddCartButtonClick;
 		this.itemInfoOutputNode = document.querySelector('#itemInfoOutput');
 		this.backButtonNode = document.querySelector('#backButton');
 		this.backButtonNode.addEventListener('click', this._openMainPage)
+		// this.addToCartBtnNode = document.querySelector('#addToCartBtn')
+		// this.this.addToCartBtnNode.addEventListener('click', this.onAddCartButtonClick)
 	}
 
 	_renderItemInfo = (itemInfo) => {
@@ -19,7 +22,7 @@ class ItemView {
 					<div class="item-rating" id="itemRating"></div>
 					<p class="item-price" id="itemPrice">${itemInfo.price}</p>
 					<p class="item-basic-information" id="itemBasicDesc">${itemInfo.basic_information}</p>
-					<!-- <button></button> -->
+					${this._createAddCartBtn()}
 				</div>
 			</div>
 			<div class="divider"></div>
@@ -28,6 +31,27 @@ class ItemView {
 				${itemInfo.full_description}
 			</div>
 		`
+	}
+	_createAddCartBtn = () => {
+		// Кнопка
+		const btn = document.createElement('button');
+		const elementWrapper = document.createElement('div');
+		btn.classList.add('cart_button', 'add-to-cart-btn')
+		btn.id = "addToCartBtn";
+		//Тест кнопки
+		const btnText = document.createElement('div')
+		btnText.innerText = "В корзину";
+		
+		// Картинка добавления товара
+		const image = document.createElement('img');
+		image.src = '../assets/add-btn-icon .svg';
+		
+		// Создание элемента кнопки
+		btn.setAttribute("onclick", 'this.item_view.handleAddCartBtnClick');
+		btn.appendChild(image);
+		btn.appendChild(btnText);
+		elementWrapper.appendChild(btn);
+		return elementWrapper.innerHTML;
 	}
 
 	_openMainPage = () => window.location.href = `../../index.html`;

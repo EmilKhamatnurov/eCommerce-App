@@ -51,6 +51,8 @@
 	align-self: stretch;
 }
 
+.add-to-cart-btn {}
+
 .full-desc-title {
 	color: var(--font-dark, #1A1F16);
 	font-family: Open Sans;

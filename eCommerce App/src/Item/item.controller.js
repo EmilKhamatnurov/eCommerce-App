@@ -6,7 +6,9 @@ import LocalStorage from "../LocalStorage/localStorage";
 
 class ItemController {
 	constructor() {
-		this.item_view = new ItemView();
+		this.item_view = new ItemView({
+			onAddCartButtonClick: this.handleAddCartBtnClick, 
+		});
 		this.item_model = new ItemModel();
 		this.cart_view = new CartView();
 		this.firebase = new Firebase();
@@ -27,6 +29,9 @@ class ItemController {
 			});
 	}
 
+	handleAddCartBtnClick = () => {
+		this.localStorage.saveCartToLocalStorage(this.item_model._getItem())
+	}
 	// Функция-заглушка
 	f = () => {
 
