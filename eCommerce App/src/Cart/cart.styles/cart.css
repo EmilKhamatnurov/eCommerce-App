@@ -70,7 +70,9 @@
 	font-size: 18px;
 
 }
-
+[data-operation="-"] {
+	cursor: pointer;
+}
 [data-operation="-"] {
 	color: red;
 }
