@@ -2,7 +2,6 @@ class LocalStorage {
 	constructor({onStorageChange}) {
 		this.cartKeyString = 'cart';
 		this.onStorageChange = onStorageChange;
-		this.localStorage = localStorage;
 	}
 	_getCartItems = () => 
 		this._getFromStorageByKey(this.cartKeyString) === null ? [] :
@@ -17,12 +16,8 @@ class LocalStorage {
 		this.onStorageChange(this._getFromStorageByKey(this.cartKeyString));
 	}
 
-	// _generateUserId = () => {
-	// 	this.onStorageChange(this.cartItems);
-	// }
-	//! Нужно поменяь название массива на Add, потому что у нас должна быть функция сохранения элемента
-
 	saveCartToLocalStorage = (item) => {
+		/*Почему-то переменная считывает старую версию LocalStorage. Возможно дело в порядке процессов */
 		const cartItems = this._getCartItems();
 		const itemIndex = cartItems.findIndex(dataItem => item.id == dataItem.id);
 		//Если элемента в корзине нет, то оставить все как есть, иначе добавить товар в корзину
@@ -31,7 +26,6 @@ class LocalStorage {
 			this.onStorageChange(cartItems);
 		} 
 		localStorage.setItem('cart', JSON.stringify(cartItems));
-		console.log(itemIndex,cartItems);
 	}
 }
 

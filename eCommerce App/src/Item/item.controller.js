@@ -30,18 +30,14 @@ class ItemController {
 	}
 
 	handleAddCartBtnClick = () => {
-		const itemId = this.item_model.getMovieID();
 		const modelData = this.item_model._getItem();
-		console.log(itemId,modelData);
-		console.log("Привет!");
-		this.localStorage.saveCartToLocalStorage(modelData)
+		this.localStorage.saveCartToLocalStorage(modelData) 
 	}
 	// Функция-заглушка
 	f = () => {
 
 	}
 }
-
 
 const controller = new ItemController()
 window.addEventListener('load', controller.init);
