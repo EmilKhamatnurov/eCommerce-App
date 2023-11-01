@@ -13,17 +13,19 @@ class CartView {
 			cartItems.forEach((cartItem, index) => {
 				this.cartNode.innerHTML += this._buildCartItemHtml(cartItem, index);
 			});
+			this.couunterBtnsNode = document.querySelectorAll("[data-operation]");
+			console.log(this.couunterBtnsNode);
+			this.couunterBtnsNode.forEach(btn => {
+				btn.addEventListener("click", (element) => {
+					console.log("Привет");
+				});
+			})
 		}
 		else {
 			this.cartNode.innerHTML = 'Пустая';
 		}	
 		// Добавление обработчика событий для кнопок добавления количества товара
-		this.couunterBtnsNode = document.querySelectorAll("[data-operation]");
-		this.couunterBtnsNode.forEach(btn => {
-			btn.addEventListener("click", (element) => {
-				console.log("Привет");
-			});
-		})
+		
 		
 	}
 	_buildCartItemHtml = (cartItem, index) => {
