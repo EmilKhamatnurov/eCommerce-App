@@ -17,6 +17,14 @@ class CartView {
 		else {
 			this.cartNode.innerHTML = 'Пустая';
 		}	
+		// Добавление обработчика событий для кнопок добавления количества товара
+		this.couunterBtnsNode = document.querySelectorAll("[data-operation]");
+		this.couunterBtnsNode.forEach(btn => {
+			btn.addEventListener("click", (element) => {
+				console.log("Привет");
+			});
+		})
+		
 	}
 	_buildCartItemHtml = (cartItem, index) => {
 		return `
