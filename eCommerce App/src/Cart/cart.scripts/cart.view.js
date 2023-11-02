@@ -1,11 +1,20 @@
 class CartView {
-	constructor() {
-		this.cartOutputNode = document.querySelector('#cartOutput');
+	constructor({onCounterBtnClick}) {
+		this.onCounterBtnClick = onCounterBtnClick;
+		// Корзина в углу
 		this.cartNode = document.querySelector('#cart');
+		// Список товаров
+		this.cartOutputNode = document.querySelector('#cartOutput');
+		// Добаввление обработчика событий для кнопок добавления количества товара
+		this.cartOutputNode.addEventListener('click', (element) => {
+			this._addListenerToCounterBtn(element.target);
+		})
 		// Кнопка возврата к главной странице магазина
 		this.backButtonNode = document.querySelector('#backButton');
 		this.backButtonNode.addEventListener('click', this._openMainPage);
-	}
+		// Общая стоимость корзины
+		this.totalCostOutputNode = document.querySelector('#totalCostOutput');
+	}	
 	// Рендер корзины сбоку
 	_renderCart = (cartItems) => {
 		this.cartNode.innerHTML = '';
@@ -13,21 +22,12 @@ class CartView {
 			cartItems.forEach((cartItem, index) => {
 				this.cartNode.innerHTML += this._buildCartItemHtml(cartItem, index);
 			});
-			this.couunterBtnsNode = document.querySelectorAll("[data-operation]");
-			console.log(this.couunterBtnsNode);
-			this.couunterBtnsNode.forEach(btn => {
-				btn.addEventListener("click", (element) => {
-					console.log("Привет");
-				});
-			})
 		}
 		else {
 			this.cartNode.innerHTML = 'Пустая';
 		}	
-		// Добавление обработчика событий для кнопок добавления количества товара
-		
-		
 	}
+
 	_buildCartItemHtml = (cartItem, index) => {
 		return `
 			<div data-cartItem='${index}' class='cart-item'>
@@ -38,7 +38,6 @@ class CartView {
 			</div>
 		`
 	}
-
 	// Рендер списка элементов в корзине
 	_renderCartList = (itemsData) => {
 		this.cartOutputNode.innerHTML = '';
@@ -62,7 +61,7 @@ class CartView {
 					<p class="cart-list__item-basic-info">${cartItem.basic_information}</p>
 					<div class="cart-list__item-rating"></div>
 					<div class="cart-list__price-wrapper">
-						<div class="cart-list__item-price">$  ${cartItem.price} x ${cartItem.count}</div>
+						<div class="cart-list__item-price">$  ${cartItem.price} x  <span class="cart-list__item-count">${cartItem.count}</span></div>
 						<div class="cart-list__item-counter">
 							<button data-operation="-" class="cart-list__item-counter-button">-</button>
 							<div class="cart-list__item-count">${cartItem.count}</div>
@@ -73,6 +72,26 @@ class CartView {
 			</div>
 		`
 	}
+
+	_addListenerToCounterBtn = (element) => {
+		const btnOperation = element.dataset["operation"];
+		if (btnOperation) {
+			const itemNode = element.closest('.cart-list__item');
+			const itemId = itemNode.dataset['cartitem'];
+			this.onCounterBtnClick(btnOperation,itemId);
+		}
+	}
+
+	renderItemCount = (itemId, count) => {
+		const item = document.querySelector(`.cart-list__item[data-cartitem="${itemId}"]`)
+		for (const counter of item.querySelectorAll('.cart-list__item-count')) {
+			counter.innerHTML = count;
+		}
+	}
+	renderTotalCost = (totalCost) => {
+		this.totalCostOutputNode.innerHTML = totalCost;
+	}
+
 	// переопределиться
 	_openMainPage = () => window.location.href = `../../index.html`;
 }

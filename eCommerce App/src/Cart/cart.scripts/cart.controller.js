@@ -4,27 +4,29 @@ import LocalStorage from "../../LocalStorage/localStorage";
 
 class CartController {
 	constructor() {
-		this.cart_view = new CartView();
+		this.cart_view = new CartView({
+			onCounterBtnClick: this.handleCounterBtnClick,
+		});
 		this.localStorage = new LocalStorage({
-			onStorageChange: this.f
+			onStorageChange: this.itemCountChanged
 		});
 		this.firebase = new Firebase();
 	}
-
-
-
-
-	
 
 	init = () => {
 		const cartData = this.localStorage._getCartItems();
 		this.cart_view._renderCart(cartData);
 		this.cart_view._renderCartList(cartData);
-		
+	}
+
+	handleCounterBtnClick = (operation, itemId) => {
+		this.localStorage.changeItemCount(operation,itemId);
 	}
 	// функция-заглушка
-	f = () => {
-
+	itemCountChanged = (itemId, itemCount) => {
+		
+		this.cart_view.renderItemCount(itemId,itemCount);
+		this.cart_view.renderTotalCost(this.localStorage._getTotalCost());
 	}
 }
 
