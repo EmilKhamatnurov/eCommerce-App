@@ -11,12 +11,12 @@ class LocalStorage {
 	_saveItemsToLocal = (key, items) => localStorage.setItem(key, JSON.stringify(items));
 	_getTotalCost = () => {
 		let totalCost = 0;
+		
 		this._getCartItems().forEach(item => {
-			console.log(item.cost);
-			totalCost += Number(item.cost).toFixed(2);
-
+			totalCost = totalCost + Number(item.cost);
 		});
-		return totalCost;
+
+		return totalCost.toFixed(2);
 	}
 
 	_deleteCartItem = (itemId) => {

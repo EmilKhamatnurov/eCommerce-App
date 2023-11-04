@@ -17,6 +17,7 @@ class CartController {
 		const cartData = this.localStorage._getCartItems();
 		this.cart_view._renderCart(cartData);
 		this.cart_view._renderCartList(cartData);
+		this.cart_view.renderTotalCost(this.localStorage._getTotalCost());
 	}
 
 	handleCounterBtnClick = (operation, itemId) => {
@@ -24,7 +25,6 @@ class CartController {
 	}
 	// функция-заглушка
 	itemCountChanged = (itemId, itemCount) => {
-		
 		this.cart_view.renderItemCount(itemId,itemCount);
 		this.cart_view.renderTotalCost(this.localStorage._getTotalCost());
 	}
